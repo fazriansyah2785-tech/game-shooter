@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shooter Final</title>
+
+<style>
+body{
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:Arial;
+  overflow:hidden;
+}
+canvas{
+  display:block;
+  margin:auto;
+  background:#111;
+  touch-action:none;
+}
+
+/* HUD */
+#hud{
+  position:fixed;
+  top:10px;
+  left:10px;
+  font-size:14px;
+}
+.bar{
+  width:120px;
+  height:10px;
+  border:1px solid #fff;
+}
+.hp{
+  height:100%;
+  background:red;
+}
+
+/* Overlay */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+button{
+  padding:12px 20px;
+  margin:8px;
+  font-size:18px;
+}
+
+/* Mobile Controls */
+#controls{
+  position:fixed;
+  bottom:10px;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:space-around;
+}
+.ctrl{
+  width:18%;
+  padding:14px;
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="game" width="360" height="640"></canvas>
+
+<div id="hud">
+  <div>HP</div>
+  <div class="bar"><div id="hpBar" class="hp"></div></div>
+  <div>Level: <span id="levelText">1</span></div>
+  <div>Score: <span id="scoreText">0</span></div>
+</div>
+
+<!-- MENU -->
+<div id="menu" class="overlay">
+  <h1>SHOOTER GAME</h1>
+  <button onclick="startGame()">START</button>
+</div>
+
+<!-- PAUSE -->
+<div id="pause" class="overlay" style="display:none">
+  <h2>PAUSED</h2>
+  <button onclick="resumeGame()">RESUME</button>
+  <button onclick="location.reload()">MENU</button>
+</div>
+
+<!-- MOBILE CONTROLS -->
+<div id="controls">
+  <button class="ctrl" id="btnLeft">⬅️</button>
+  <button class="ctrl" id="btnUp">⬆️</button>
+  <button class="ctrl" id="btnShoot">🔥</button>
+  <button class="ctrl" id="btnDown">⬇️</button>
+  <button class="ctrl" id="btnRight">➡️</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
